@@ -16,16 +16,14 @@ char z;
        // System.out.print(file);
         PushbackReader in = new PushbackReader(new FileReader(file));
     	char s;
+    	char c;
     	int x = 0;
         while (x!=-1 ) {
             x = in.read();
             in.unread(x);
         	s = nextToken(in);
-        	if(s == ')') {
-        		System.out.print(s);
-        	} else {
-        		System.out.print("e");
-        	}
+        	c = scan(s);
+        	System.out.print(c);
         } 
         
     } else {
@@ -33,8 +31,19 @@ char z;
     }
 }
 
-public static char nextToken(PushbackReader reader) throws IOException {
-	return (char) reader.read();
+public static char nextToken(PushbackReader in) throws IOException {
+	return (char) in.read();
+}
+
+public static char scan(char s) {
+	if(s == ')') {
+		return s;
+	}
+	if(s == '(') {
+		return s;
+	}
+	
+	return 'e';
 }
 
 
