@@ -14,14 +14,18 @@ char z;
     if(args.length > 0) {
         File file = new File(args[0]);
        // System.out.print(file);
-        PushbackReader reader = new PushbackReader(new FileReader(file));
+        PushbackReader in = new PushbackReader(new FileReader(file));
     	char s;
     	int x = 0;
         while (x!=-1 ) {
-            x = reader.read();
-            reader.unread(x);
-        	s = nextToken(reader);
-        	System.out.print(s);
+            x = in.read();
+            in.unread(x);
+        	s = nextToken(in);
+        	if(s == ')') {
+        		System.out.print(s);
+        	} else {
+        		System.out.print("e");
+        	}
         } 
         
     } else {
