@@ -1,3 +1,10 @@
+/**
+ * @author Matthew Solle 
+ * @email msolle90@gmail.com
+ * 
+ */
+
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -5,10 +12,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PushbackReader;
 
-
 public class CalcScanner {
-char z;
-	
 	
 	public static void main(String[] args) throws IOException {
     if(args.length > 0) {
@@ -16,12 +20,19 @@ char z;
        // System.out.print(file);
         PushbackReader in = new PushbackReader(new FileReader(file));
         CalcScanner scan = new CalcScanner();
-    	int s;
+    	
+        
+        int s;
+        String line = null;
+        String result = "";
         do {
         	s = scan.nextToken(in);
         	char token;
-        	token = (char) s;
-        	System.out.print(token);
+        	token = (char) s;       	
+        	if(line.valueOf(token).matches("^[a-zA-Z]") ) {
+        		result+=token;
+        	}
+        	//System.out.print(result);
         } while(s != -1);
     } else {
     	System.out.print("There needs to be a file specified when launching. Format: -java CalcScanner [filename]");
