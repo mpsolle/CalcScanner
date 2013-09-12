@@ -15,38 +15,31 @@ char z;
         File file = new File(args[0]);
        // System.out.print(file);
         PushbackReader in = new PushbackReader(new FileReader(file));
-    	char s;
-    	char c;
-    	int x = 0;
-        while (x!=-1 ) {
-            x = in.read();
-            in.unread(x);
-        	s = nextToken(in);
-        	c = scan(s);
-        	System.out.print(c);
-        } 
-        
+        CalcScanner scan = new CalcScanner();
+    	int s;
+        do {
+        	s = scan.nextToken(in);
+        	char token;
+        	token = (char) s;
+        	System.out.print(token);
+        } while(s != -1);
     } else {
     	System.out.print("There needs to be a file specified when launching. Format: -java CalcScanner [filename]");
     }
 }
 
-public static char nextToken(PushbackReader in) throws IOException {
-	return (char) in.read();
-}
-
-public static char scan(char s) {
-	if(s == ')') {
-		return s;
+public static int nextToken(PushbackReader in) throws IOException {
+	return in.read();
 	}
-	if(s == '(') {
-		return s;
-	}
-	
-	return 'e';
 }
 
-
-
-
-}
+//public static char scan(char s) {
+//	if(s == ')') {
+//		return s;
+//	}
+//	if(s == '(') {
+//		return s;
+//	}
+//	
+//	return 'e';
+//}
