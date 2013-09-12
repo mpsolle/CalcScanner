@@ -1,15 +1,15 @@
 /**
+ * 
  * @author Matthew Solle 
  * @email msolle90@gmail.com
+ * @github github.com/mpsolle
  * 
  */
 
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PushbackReader;
 
 public class CalcScanner {
@@ -23,23 +23,22 @@ public class CalcScanner {
     	
         
         int s;
-        String line = null;
         String result = "";
         do {
         	s = scan.nextToken(in);
         	char token;
         	token = (char) s;       	
-        	if(line.valueOf(token).matches("^[a-zA-Z]") ) {
+        	if(String.valueOf(token).matches("^[a-zA-Z]") ) {
         		result+=token;
         	}
-        	//System.out.print(result);
+        	System.out.print(result);
         } while(s != -1);
     } else {
     	System.out.print("There needs to be a file specified when launching. Format: -java CalcScanner [filename]");
     }
 }
 
-public static int nextToken(PushbackReader in) throws IOException {
+public int nextToken(PushbackReader in) throws IOException {
 	return in.read();
 	}
 }
